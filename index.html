@@ -1,50 +1,106 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Главная - Название вашего сайта</title>
- <meta name="description" content="Краткое описание главной страницы вашего сайта">
- <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-</head>
-<body>
- <!-- Шапка сайта -->
- <header>
- <a href="/">MicKhonSite</a>
- <!-- Главное меню навигации -->
- <nav>
- <ul>
- <li><a href="index.html">Главная</a></li>
- <li><a href="about.html">О нас</a></li>
- <li><a href="contacts.html">Контакты</a></li>
- </ul>
- </nav>
- </header>
- <!-- Уникальное основное содержимое страницы -->
- <main>
- <h1>Добро пожаловать на наш сайт!</h1>
- <!-- Секция 1 с якорем -->
- <section id="services">
- <h2>Наши услуги</h2>
- <p>Разработка сайтов любой сложности</p>
- <a href="contacts.html">Связаться с нами</a> <!-- Якорная ссылка внутри страницы -->
- </section>
- <!-- Секция 2 с якорем -->
- <section id="portfolio">
- <h2>Портфолио</h2>
- <p>Примеры наших работ...</p>
- </section>
- <!-- Секция 3 с якорем -->
- <section id="contacts">
- <h2>Контактная информация</h2>
- <p>Наши контакты...</p>
- <a href="contacts.html">Подробнее</a> <!-- Ссылка на отдельную страницу -->
- </section>
- </main>
- <!-- Подвал сайта -->
- <footer>
- <p>&copy; 2025 MicKhonSite. Все права защищены.</p>
- <p>Телефон: +7 (926) 548-78-90</p>
- </footer>
-</body>
+<!DOCTYPE html> 
+<html lang="ru"> 
+<head> 
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Главная - Название вашего сайта</title> 
+    <meta name="description" content="Краткое описание главной страницы вашего сайта"> 
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon"> 
+</head> 
+<body> 
+    <!-- Шапка сайта --> 
+    <header class="header">
+        <a class="header__brand" href="/">Логотип или название сайта</a>
+        <nav class="nav" aria-label="Основная навигация">
+            <ul class="nav__list">
+                <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
+                <li class="nav__item"><a class="nav__link" href="about.html">О нас</a></li>
+                <li class="nav__item"><a class="nav__link" href="contacts.html">Контакты</a></li>
+                <li class="nav__item"><a class="nav__link nav__link--cta" href="#contacts">Связаться с нами</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Уникальное основное содержимое страницы --> 
+    <main>
+        <section class="hero">
+            <div class="hero__content">
+                <h1>Добро пожаловать на наш сайт!</h1>
+                <p>Мы создаем innovative решения для вашего бизнеса</p>
+                <a href="#contacts" class="hero__button">Начать сотрудничество</a>
+            </div>
+        </section> 
+        <!-- Секция 1 с якорем --> 
+        <section id="services" class="section">
+            <h2>Наши услуги</h2>
+            <p>Описание предоставляемых услуг...</p>
+    
+            <div class="media">
+                <video controls width="800" height="450" style="border-radius: var(--radius);">
+                    <source src="assets/video.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
+            </div>
+    
+            <a href="#contacts">Связаться с нами</a>
+        </section> 
+        <!-- Секция 2 с якорем --> 
+        <section id="portfolio" class="section">
+            <h2>Портфолио</h2>
+            <p>Примеры наших работ...</p>
+            <img src="assets/portfolio.jpg" 
+                alt="Пример нашей работы" 
+                width="800" 
+                height="450"
+                loading="lazy"
+                style="border-radius: var(--radius); margin-top: var(--space-3);">
+        </section> 
+        <!-- Секция 3 с якорем --> 
+        <section id="contacts" class="section"> 
+            <h2>Контактная информация</h2> 
+            <p>Наши контакты...</p> 
+            <!-- Кнопка открытия модалки -->
+<button id="openDialog" type="button">Написать нам</button>
+    </main> 
+            <a href="contacts.html">Подробнее</a> <!-- Ссылка на отдельную страницу --> 
+        </section> 
+    <!-- Подвал сайта --> 
+    <footer> 
+        <p>&copy; 2023 Название вашего сайта. Все права защищены.</p> 
+        <p>Телефон: +7 (123) 456-78-90</p> 
+    </footer> 
+    <!-- Модалка с формой -->
+<dialog id="contactDialog" class="modal" aria-labelledby="dialogTitle">
+    <h2 id="dialogTitle">Обратная связь</h2>
+    <form id="contactForm" class="form" method="dialog" novalidate>
+        <label for="name">Имя</label>
+        <input id="name" name="name" type="text" required minlength="2" autocomplete="given-name">
+
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" required autocomplete="email">
+
+        <label for="phone">Телефон</label>
+        <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="phoneHelp" placeholder="+7 (___) ___--" required pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$">
+        <small id="phoneHelp">Формат: +7 (900) 000-00-00</small>
+
+        <label for="date">Дата</label>
+        <input id="date" name="date" type="date">
+        <label for="topic">Тема</label>
+        <select id="topic" name="topic" required>
+            <option value="">Выберите тему</option>
+            <option>Вопрос</option>
+            <option>Заказ</option>
+        </select>
+
+        <label for="message">Сообщение</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <div class="form-actions">
+            <button type="button" id="closeDialog">Закрыть</button>
+            <button type="submit">Отправить</button>
+        </div>
+    </form>
+    </dialog>
+    <script src="main.js"></script>
+</body> 
 </html>
