@@ -3,9 +3,9 @@
     /* Палитра */
     --color-bg: #fff;
     --color-fg: #0b0b0b;
-    --color-muted: #666;
-    --color-primary: #0a84ff;
-    --color-danger: #b00020;
+    --color-muted: #ffffff;
+    --color-primary: #a600ff;
+    --color-danger: #7b5efd;
 
     /* Типографика */
     --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
